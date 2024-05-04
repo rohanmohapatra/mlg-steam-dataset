@@ -47,14 +47,14 @@ class SteamDataset(Dataset):
 
         edge_index = torch.empty((2, len(self.edges)), dtype=torch.long)
         x = torch.empty((len(combined_nodes), 1))
-        mapping = dict(zip(combined_nodes, range(len(combined_nodes))))
+        self.mapping = dict(zip(combined_nodes, range(len(combined_nodes))))
 
         for i, (src, dst) in enumerate(self.edges):
-            edge_index[0, i] = mapping[src]
-            edge_index[1, i] = mapping[dst]
+            edge_index[0, i] = self.mapping[src]
+            edge_index[1, i] = self.mapping[dst]
 
         for i, node_id in enumerate(combined_nodes):
-            x[mapping[node_id], 0] = 0 if node_id.startswith("u") else 1
+            x[self.mapping[node_id], 0] = 0 if node_id.startswith("u") else 1
 
         data = Data(x=x, edge_index=edge_index, y=x)
 

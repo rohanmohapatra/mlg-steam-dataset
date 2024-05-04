@@ -8,6 +8,7 @@ from mlg.svm.kernel import LinearKernel, PolynomialKernel, RBFKernel
 
 class BaseSVM(nn.Module):
     def __init__(self, num_samples) -> None:
+        super(BaseSVM, self).__init__()
         self.kernel = None
         self.weight = nn.Parameter(torch.zeros(num_samples))
         self.bias = nn.Parameter(torch.zeros(1))
