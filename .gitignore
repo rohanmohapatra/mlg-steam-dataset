@@ -1,0 +1,9 @@
+# Byte compiled python
+**/__pycache__
+
+# Virtual Env
+.venv
+
+# Processed Data
+data
+!mlg/data

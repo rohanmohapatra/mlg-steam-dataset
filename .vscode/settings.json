@@ -1,0 +1,15 @@
+{
+  "black-formatter.importStrategy": "fromEnvironment",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always"
+  },
+  "editor.defaultFormatter": "ms-python.black-formatter",
+  "editor.formatOnSave": true,
+  "runOnSave.commands": [
+    {
+      "command": "isort **/*.py",
+      "match": ".*\\.py$",
+      "runIn": "terminal"
+    }
+  ]
+}
